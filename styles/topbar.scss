@@ -1,0 +1,58 @@
+/* TOPBAR */
+
+.topbar {
+    width: calc(100vw - 288px) !important;
+    position: absolute;
+    height: 80px;
+    left: 288px;
+    top: 0px;
+    background: #F1F2F8;
+    font-family: 'Poppins';
+    color: #D9DAE3;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    max-width: calc(100vw - 288px) !important;
+
+    .row {
+        height: 100%;
+
+        .column {
+            display: flex;
+            align-items: center;
+
+            &.search {
+                img {
+                    margin: 0 18px;
+                }
+            }
+
+            &.actions {
+                justify-content: center;
+                .action {
+                    display: flex;
+                    align-items: center;
+                    padding: 0 18px;
+
+                    p {
+                        margin: 0;
+                        margin-left: 4px;
+                    }
+
+                    img {
+                        height: 28px;
+                    }
+                }
+            }
+
+            &.user {
+                justify-content: flex-end;
+
+                img {
+                    padding:0 16px;
+                }
+            }
+        }
+    }
+}
