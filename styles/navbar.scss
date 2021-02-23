@@ -1,0 +1,119 @@
+.nav.nav-tabs {
+    padding-top: 48px;
+    width: 100%;
+
+    .nav-link {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        color: #3843D0 !important;
+        text-transform: uppercase;
+
+        &.active {
+            border: 0;
+            border-bottom: 2px solid #3843D0;
+            background: transparent;
+        }
+    }
+}
+
+.nav-tabs {
+    border: none !important;
+}
+
+.tab-content {
+    width: 100%;
+
+    .card {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        border-bottom: 1px solid #DBDBDB;
+        flex-direction: row;
+        height: 128px;
+        padding: 24px 24px 0 8px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: normal;
+        line-height: 24px;
+
+        .avatar {
+
+            img {
+                height: 56px;
+            }
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 16px;
+            color: #4F4F4F;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: #828282;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            background: transparent;
+            border: 0;
+            padding: 0;
+
+            img {
+                height: 20px;
+                margin-right: 20px;
+            }
+
+            .student {
+                font-size: 13px;
+                color: #828282;
+
+                .course {
+                    color: #3843D0;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            padding-bottom: 24px;
+            justify-content: space-between;
+
+            .comments {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                p {
+                    margin: 0;
+                    font-weight: 600;
+                    color: #9A9CB5;
+                    font-size: 14px;
+                    margin-left: 5px;
+                }
+            }
+
+            .share-fav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+                img {
+                    margin-left: 24px;
+                }
+            }
+        }
+    }
+}
