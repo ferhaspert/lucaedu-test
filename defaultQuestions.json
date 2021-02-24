@@ -1,0 +1,22 @@
+{"questions": [
+    {
+      "id": "1",
+      "avatar": "blue",
+      "title": "¿Cuáles son los múltiplos del 7?",
+      "description":
+        "La verdad no me queda muy claro cuáles son los múltiplos del 7 porque...",
+      "username": "juan.c23",
+      "course": "Matemáticas 6",
+      "comments": 72
+    },
+    {
+      "id": "2",
+      "avatar": "yellow",
+      "title": "¿Qué es el quíntuple de un número?",
+      "description":
+        "Es la primera vez que escucho la palabra... me gustaría que alguien me exp...",
+      "username": "juliaraujo",
+      "course": "Matemáticas 6",
+      "comments": 153
+    }
+]}
