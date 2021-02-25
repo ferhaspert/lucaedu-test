@@ -14,6 +14,7 @@ export default function QuestionCard({
   dislikedBy,
   favourite,
   user,
+  toggleReaction,
 }) {
   const userMatch = (array) => {
     return array.some((id) => id === user?.id);
@@ -32,10 +33,16 @@ export default function QuestionCard({
             <CardFooter>
               <div className="like">
                 <div className={`${userMatch(likedBy) ? "liked" : ""}`}>
-                  <ReactSVG src="/icons/thumbs-up.svg" />
+                  <ReactSVG
+                    onClick={() => toggleReaction(id, "like")}
+                    src="/icons/thumbs-up.svg"
+                  />
                 </div>
                 <div className={`${userMatch(dislikedBy) ? "disliked" : ""} `}>
-                  <ReactSVG src="/icons/thumbs-down.svg" />
+                  <ReactSVG
+                    onClick={() => toggleReaction(id, "dislike")}
+                    src="/icons/thumbs-down.svg"
+                  />
                 </div>
               </div>
               <div className="student">
@@ -51,7 +58,10 @@ export default function QuestionCard({
           </div>
           <div className="share-fav">
             <ReactSVG src="/icons/share.svg" />
-            <ReactSVG src={`/icons/${favourite ? "filled-" : ""}star.svg`} />
+            <ReactSVG
+              onClick={() => toggleReaction(id, "fav")}
+              src={`/icons/${favourite ? "filled-" : ""}star.svg`}
+            />
           </div>
         </Col>
       </Card>
