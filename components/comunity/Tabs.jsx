@@ -1,20 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  TabContent,
-  TabPane,
-  Nav,
-  NavItem,
-  NavLink,
-  Card,
-  CardTitle,
-  CardText,
-  CardFooter,
-  Row,
-  Col,
-} from "reactstrap";
+import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
+import QuestionCard from "./QuestionsCard";
 
-export default function Tabs({ questions }) {
+export default function Tabs({ questions, user }) {
   const [activeTab, setActiveTab] = useState("1");
 
   const toggle = (tab) => {
@@ -25,6 +14,10 @@ export default function Tabs({ questions }) {
     { value: "2", title: "Nuevos" },
     { value: "3", title: "Seguidos" },
   ];
+
+  const isFavourite = (questionId) => {
+    return user?.favourites?.some((fav) => fav === questionId);
+  };
 
   return (
     <>
@@ -45,56 +38,37 @@ export default function Tabs({ questions }) {
       <TabContent activeTab={activeTab}>
         <TabPane tabId="1">
           {questions &&
-            questions.map(
-              ({
-                id,
-                avatar = "blue",
-                title,
-                description,
-                username,
-                course,
-                comments,
-                liked,
-                disliked,
-                favourite,
-              }) => (
-                <Row key={id}>
-                  <Card body>
-                    <Col className="avatar" sm="2">
-                      <img src={`/icons/avatar-${avatar}.svg`} />
-                    </Col>
-                    <Col sm="8">
-                      <Row>
-                        <CardTitle>{title}</CardTitle>
-                        <CardText>{description}</CardText>
-                        <CardFooter>
-                          <div className="like">
-                            <img src="/icons/thumbs-up.svg" />
-                            <img src="/icons/thumbs-down.svg" />
-                          </div>
-                          <div className="student">
-                            Pregunta {username} en{" "}
-                            <span className="course">{course}</span>
-                          </div>
-                        </CardFooter>
-                      </Row>
-                    </Col>
-                    <Col className="actions" sm="2">
-                      <div className="comments">
-                        <img src="/icons/message-circle.svg" />
-                        <p>{comments || "0"}</p>
-                      </div>
-                      <div className="share-fav">
-                        <img src="/icons/share.svg" />
-                        <img
-                          src={`/icons/${favourite ? "filled-" : ""}star.svg`}
-                        />
-                      </div>
-                    </Col>
-                  </Card>
-                </Row>
-              )
-            )}
+            questions.map((question) => (
+              <QuestionCard
+                favourite={isFavourite(question.id)}
+                {...question}
+                user={user}
+              />
+            ))}
+        </TabPane>
+        <TabPane tabId="2">
+          {questions &&
+            questions
+              .filter(({ year }) => year === "2021")
+              .map((question) => (
+                <QuestionCard
+                  favourite={isFavourite(question.id)}
+                  {...question}
+                  user={user}
+                />
+              ))}
+        </TabPane>
+        <TabPane tabId="3">
+          {questions &&
+            questions
+              .filter(({ id }) => isFavourite(id))
+              .map(({ id, ...question }) => (
+                <QuestionCard
+                  favourite={isFavourite(id)}
+                  {...question}
+                  user={user}
+                />
+              ))}
         </TabPane>
       </TabContent>
     </>

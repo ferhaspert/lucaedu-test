@@ -4,22 +4,21 @@ import Tabs from '../../components/comunity/Tabs'
 import { Container, Row } from "reactstrap";
 import DefaultLayout from '../../components/DefaultLayout';
 import { useRouter } from "next/router";
-
-const LOCAL_STORAGE_KEY = process.env.LOCAL_STORAGE_KEY;
+import { getQuestions, getUser } from '../../utils/localStorage'
 
 export default function Community() {
-    const [questions, setQuestions] = useState();
-    const router = useRouter()
+  const [questions, setQuestions] = useState();
+  const [user, setUser] = useState();
+  const router = useRouter()
 
-  useEffect(async () => {
-    const storageQuestions = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if (!storageQuestions) {
-      const data = await import('../../defaultQuestions');
-      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ questions: data?.default?.questions }));
-      setQuestions(data?.default.questions);
-    } else {
-      setQuestions(JSON.parse(storageQuestions).questions)
-    }
+  useEffect(() => {
+    Promise.all([
+      getUser(),
+      getQuestions()
+    ]).then(([user, quest]) => {
+        setQuestions(quest)
+        setUser(user)
+    })
   }, []);
 
   return (
@@ -35,7 +34,7 @@ export default function Community() {
         </Container>
         <Container>
           <Row className="content">
-            <Tabs questions={questions}/>
+            <Tabs user={user} questions={questions}/>
           </Row>
         </Container>
       </div>

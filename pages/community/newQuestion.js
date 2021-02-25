@@ -1,35 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 import DefaultLayout from "../../components/DefaultLayout";
 import { Container, Row } from "reactstrap";
 import { useRouter } from "next/router";
 import { Button } from "reactstrap";
-
-const LOCAL_STORAGE_KEY = process.env.LOCAL_STORAGE_KEY;
+import { getQuestions, setQuestions, getUser } from "../../utils/localStorage"
 
 export default function NewQuestion() {
   const router = useRouter();
-  const [loggedUser, setLoggedUser] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
 
-  useEffect(async () => {
-    const data = await import('../../loggedUser.json');
-    setLoggedUser(data?.default)
-  }, [])
-
   const addNewQuestion = () => {
-    const { username } = loggedUser
-    const storageQuestions = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))?.questions
-    const newQuestion = {
-      id: storageQuestions.length + 1,
-      avatar: 'yellow',
-      title,
-      description,
-      username,
-      course: 'Matemáticas 6'
-    }
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify({ questions: [...storageQuestions, newQuestion] }))
-    router.push('/community')
+    Promise.all([
+      getUser(),
+      getQuestions()
+    ]).then(([{ username }, questions]) => {
+        const newQuestion = { 
+          id: (questions.length + 1).toString(),
+          avatar: 'yellow',
+          title,
+          description,
+          username,
+          course: 'Matemáticas 6',
+          likedBy: [],
+          dislikedBy: [],
+          year: "2021"
+        }
+        setQuestions([...questions, newQuestion])
+        router.push('/community')
+    })
   }
 
   return <DefaultLayout>

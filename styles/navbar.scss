@@ -42,7 +42,7 @@
 
         .avatar {
 
-            img {
+            img, svg {
                 height: 56px;
             }
         }
@@ -70,10 +70,23 @@
             border: 0;
             padding: 0;
 
-            img {
-                height: 20px;
-                margin-right: 20px;
+            .like {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .liked, .disliked {
+                    img, svg {
+                        fill: #3843D0;
+                    }
+                }
+
+                img, svg {
+                    height: 20px;
+                    margin-right: 10px;
+                }
             }
+
 
             .student {
                 font-size: 13px;
@@ -112,7 +125,7 @@
                 align-items: center;
                 justify-content: flex-end;
 
-                img {
+                img, svg {
                     margin-left: 24px;
                 }
             }

@@ -7,7 +7,10 @@
         "La verdad no me queda muy claro cuáles son los múltiplos del 7 porque...",
       "username": "juan.c23",
       "course": "Matemáticas 6",
-      "comments": 72
+      "comments": 72,
+      "likedBy": ["8"],
+      "dislikedBy": [],
+      "year": "2020"
     },
     {
       "id": "2",
@@ -17,6 +20,9 @@
         "Es la primera vez que escucho la palabra... me gustaría que alguien me exp...",
       "username": "juliaraujo",
       "course": "Matemáticas 6",
-      "comments": 153
+      "comments": 153,
+      "likedBy": [],
+      "dislikedBy": ["8"],
+      "year": "2020"
     }
 ]}
