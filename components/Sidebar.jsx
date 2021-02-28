@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import SidebarItem from "./SidebarItem";
 import useCheckMobileScreen from "../utils/pageWidth";
 
 export default function Sidebar() {
-  const isMobile = useCheckMobileScreen();
+  const [isMobile, _] = useState(useCheckMobileScreen());
   return (
     <>
       <div className="logo">

@@ -90,6 +90,7 @@ export default function Questions({ user, setUser }) {
           {questions &&
             questions.map((question) => (
               <QuestionCard
+                key={question.id}
                 favourite={isFavourite(question.id)}
                 {...question}
                 user={user}
@@ -103,6 +104,7 @@ export default function Questions({ user, setUser }) {
               .filter(({ year }) => year === "2021")
               .map((question) => (
                 <QuestionCard
+                  key={question.id}
                   favourite={isFavourite(question.id)}
                   {...question}
                   user={user}
@@ -116,6 +118,7 @@ export default function Questions({ user, setUser }) {
               .filter(({ id }) => isFavourite(id))
               .map((question) => (
                 <QuestionCard
+                  key={question.id}
                   favourite={isFavourite(question.id)}
                   {...question}
                   user={user}

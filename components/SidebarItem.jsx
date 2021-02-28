@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import useCheckMobileScreen from "../utils/pageWidth";
-import window from "global";
 
 export default function SidebarItem({ title, selected, icon }) {
-  const isMobile = useState(useCheckMobileScreen());
+  const [isMobile, _] = useState(useCheckMobileScreen());
 
   return (
     <li

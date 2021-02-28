@@ -3,8 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import useCheckMobileScreen from "../utils/pageWidth";
 
 export default function Topbar() {
-  const isMobile = useState(useCheckMobileScreen());
-
+  const [isMobile, setIsMobile] = useState(useCheckMobileScreen());
   return (
     <Container className="topbar">
       <Row>
