@@ -36,7 +36,6 @@ export default function Questions({ user, setUser }) {
   };
 
   const toggleReaction = (id, action) => {
-    debugger;
     if (action === "fav") {
       toggleFavourite(id);
     } else {

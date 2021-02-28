@@ -1,7 +1,9 @@
 import React from "react";
 import SidebarItem from "./SidebarItem";
+import useCheckMobileScreen from "../utils/pageWidth";
 
 export default function Sidebar() {
+  const isMobile = useCheckMobileScreen();
   return (
     <>
       <div className="logo">
@@ -13,7 +15,7 @@ export default function Sidebar() {
         <SidebarItem title="Quizzes" icon="notification" />
         <SidebarItem title="Mi plan de estudios" icon="studyplan" />
         <SidebarItem selected title="Comunidad" icon="community" />
-        <SidebarItem title="Centro de ayuda" icon="help" />
+        {!isMobile && <SidebarItem title="Centro de ayuda" icon="help" />}
       </div>
     </>
   );

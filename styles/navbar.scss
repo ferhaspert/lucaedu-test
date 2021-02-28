@@ -1,6 +1,18 @@
+$mobile-max-width: 768px;
+
 .nav.nav-tabs {
     padding-top: 48px;
     width: 100%;
+
+    @media screen and (max-width: $mobile-max-width) {
+        padding-top: 32px;
+        position: fixed;
+        top: 120px;
+        z-index: 1;
+        background: #fff;
+        left: 0;
+        padding-left: 16px;
+    }
 
     .nav-link {
         font-family: 'Inter';
@@ -27,6 +39,10 @@
 
 .tab-content {
     width: 100%;
+
+    @media screen and (max-width: $mobile-max-width) {
+        margin-top: 90px;
+    }
 
     .card {
         background: rgba(255, 255, 255, 0.2);
@@ -74,6 +90,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                cursor: pointer;
 
                 .liked, .disliked {
                     img, svg {
@@ -124,6 +141,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
+                cursor: pointer;
 
                 img, svg {
                     margin-left: 24px;
