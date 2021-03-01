@@ -1,6 +1,4 @@
-## Getting Started
-
-Run the development server:
+## Correr el servidor
 
 ```bash
 npm run dev
@@ -8,4 +6,4 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) en el browser.
