@@ -59,6 +59,10 @@ a {
         position: fixed;
         background: #fff;
       }
+
+      & > .row {
+        width: 100%
+      }
     }
 
     @media screen and (max-width: $mobile-max-width) {
@@ -108,6 +112,10 @@ a {
         text-align: center;
         letter-spacing: 0.02em;
         color: #FFFFFF;
+
+        @media screen and (max-width: $mobile-max-width) {
+            width: 100%;
+        }
 
         &.cancel {
           background: #FFFFFF;

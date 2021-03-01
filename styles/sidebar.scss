@@ -32,13 +32,17 @@ $mobile-max-width: 768px;
     cursor: pointer;
 }
 
+.sidebar .item.selected {
+    border-top: 4px solid #3843D0;
+}
+
 .sidebar .item.selected .content {
     background: #EDEEFF;
     border-radius: 48px;
     color: #3843D0;
 
     @media screen and (max-width: $mobile-max-width) {
-
+        background: #fff;
     }
 }
 

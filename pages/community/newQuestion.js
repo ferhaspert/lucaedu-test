@@ -4,11 +4,15 @@ import { Container, Row } from "reactstrap";
 import { useRouter } from "next/router";
 import { Button } from "reactstrap";
 import { getQuestions, setQuestions, getUser } from "../../utils/localStorage"
+import SafeHydrate from '../../components/Safehydrate'
+import useCheckMobileScreen from '../../utils/pageWidth';
+import { ReactSVG } from "react-svg";
 
 export default function NewQuestion() {
   const router = useRouter();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
+  const isMobile = useCheckMobileScreen();
 
   const addNewQuestion = () => {
     Promise.all([
@@ -27,16 +31,24 @@ export default function NewQuestion() {
           year: "2021"
         }
         setQuestions([...questions, newQuestion])
-        router.push('/community')
+        back()
     })
   }
 
-  return <DefaultLayout>
-          <Container>
+  const back = () => {
+    router.push("/community")
+  }
+
+  return <SafeHydrate>
+    <DefaultLayout>
+          <Container className="head">
             <Row>
               <div className="content">
                 <h2 className="title">Haz una pregunta</h2>
-                <button onClick={() => router.push("/community")} className="action cancel">Cancelar</button>
+                {isMobile ? <ReactSVG
+                  onClick={back}
+              src="/icons/close.svg" /> :
+              <button onClick={back} className="action cancel">Cancelar</button>}
               </div>
           </Row>
     </Container>
@@ -59,5 +71,6 @@ export default function NewQuestion() {
         <Button disabled={!title || !description} onClick={addNewQuestion} className="action">Publicar</Button>
       </Row>
     </Container>
-  </DefaultLayout>;
+  </DefaultLayout>
+    </SafeHydrate>
 }

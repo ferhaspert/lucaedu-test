@@ -6,6 +6,8 @@ import {
   setQuestions as setStorageQuestions,
   getQuestions,
 } from "../../utils/localStorage";
+import { ReactSVG } from "react-svg";
+import { useRouter } from "next/router";
 
 const tabs = [
   { value: "1", title: "Populares" },
@@ -16,6 +18,7 @@ const tabs = [
 export default function Questions({ user, setUser }) {
   const [activeTab, setActiveTab] = useState("1");
   const [questions, setQuestions] = useState();
+  const router = useRouter();
 
   useEffect(() => {
     getQuestions().then((quest) => {
@@ -127,6 +130,12 @@ export default function Questions({ user, setUser }) {
               ))}
         </TabPane>
       </TabContent>
+      <div className="add">
+        <ReactSVG
+          onClick={() => router.push("community/newQuestion")}
+          src="/icons/pencil.svg"
+        />
+      </div>
     </>
   );
 }

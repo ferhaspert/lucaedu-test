@@ -6,14 +6,7 @@ import DefaultLayout from '../../components/DefaultLayout';
 import { useRouter } from "next/router";
 import { getUser, setUser as setStorageUser } from '../../utils/localStorage'
 import useCheckMobileScreen from '../../utils/pageWidth';
-
-function SafeHydrate({ children }) {
-  return (
-    <div suppressHydrationWarning>
-      {typeof window === 'undefined' ? null : children}
-    </div>
-  )
-}
+import SafeHydrate from '../../components/Safehydrate'
 
 export default function Community() {
   const [user, setUser] = useState();
