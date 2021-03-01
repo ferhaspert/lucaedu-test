@@ -1,3 +1,11 @@
+## Bajar dependencias
+
+```bash
+npm install
+# or
+yarn install
+```
+
 ## Correr el servidor
 
 ```bash
@@ -7,14 +15,6 @@ yarn dev
 ```
 
 Abrir [http://localhost:3000](http://localhost:3000) en el browser.
-
-Si hubiera error de dependencias:
-
-```bash
-npm install
-# or
-yarn install
-```
 
 ## Desiciones de diseño tomadas
 
