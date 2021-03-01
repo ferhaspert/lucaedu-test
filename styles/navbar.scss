@@ -56,12 +56,44 @@ $mobile-max-width: 768px;
         font-weight: normal;
         line-height: 24px;
 
+        @media screen and (max-width: $mobile-max-width) {
+            padding: 16px;
+        }
+
         .avatar {
+            @media screen and (max-width: $mobile-max-width) {
+                justify-content: space-around;
+                display: flex;
+                flex-direction: column;
+            }
 
             img, svg {
                 height: 56px;
             }
         }
+
+        .like {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+
+            .liked,
+            .disliked {
+
+                img,
+                svg {
+                    fill: #3843D0;
+                }
+            }
+
+            img,
+            svg {
+                height: 20px;
+                margin-right: 10px;
+            }
+        }
+
 
         .card-title {
             font-weight: 600;
@@ -86,22 +118,9 @@ $mobile-max-width: 768px;
             border: 0;
             padding: 0;
 
-            .like {
-                display: flex;
-                align-items: center;
+            @media screen and (max-width: $mobile-max-width) {
                 justify-content: space-between;
-                cursor: pointer;
-
-                .liked, .disliked {
-                    img, svg {
-                        fill: #3843D0;
-                    }
-                }
-
-                img, svg {
-                    height: 20px;
-                    margin-right: 10px;
-                }
+                width: 100%;
             }
 
 
@@ -122,6 +141,12 @@ $mobile-max-width: 768px;
             padding: 0;
             padding-bottom: 24px;
             justify-content: space-between;
+
+            @media screen and (max-width: $mobile-max-width) {
+                flex-direction: row;
+                padding-bottom: 0;
+                
+            }
 
             .comments {
                 display: flex;
@@ -145,6 +170,10 @@ $mobile-max-width: 768px;
 
                 img, svg {
                     margin-left: 24px;
+
+                    @media screen and (max-width: $mobile-max-width) {
+                        margin-left: 18px;
+                    }
                 }
             }
         }
