@@ -52,6 +52,11 @@ a {
   .container {
     justify-content: center;
     display: flex;
+    background: #F1F2F8;
+
+    @media screen and (max-width: $mobile-max-width) {
+      background: #fff;
+    }
 
     &.head {
       @media screen and (max-width: $mobile-max-width) {
@@ -61,7 +66,9 @@ a {
       }
 
       & > .row {
-        width: 100%
+        @media screen and (max-width: $mobile-max-width) { 
+          width: 100%
+        }
       }
     }
 

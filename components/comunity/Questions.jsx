@@ -15,7 +15,7 @@ const tabs = [
   { value: "3", title: "Seguidos" },
 ];
 
-export default function Questions({ user, setUser }) {
+export default function Questions({ user, setUser, isMobile }) {
   const [activeTab, setActiveTab] = useState("1");
   const [questions, setQuestions] = useState();
   const router = useRouter();
@@ -130,12 +130,14 @@ export default function Questions({ user, setUser }) {
               ))}
         </TabPane>
       </TabContent>
-      <div className="add">
-        <ReactSVG
-          onClick={() => router.push("community/newQuestion")}
-          src="/icons/pencil.svg"
-        />
-      </div>
+      {isMobile && (
+        <div className="add">
+          <ReactSVG
+            onClick={() => router.push("community/newQuestion")}
+            src="/icons/pencil.svg"
+          />
+        </div>
+      )}
     </>
   );
 }

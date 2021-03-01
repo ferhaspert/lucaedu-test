@@ -37,7 +37,7 @@ export default function Community() {
           </Container>
           <Container>
             <Row className="content">
-              <Questions user={user} setUser={setUser} />
+              <Questions isMobile={isMobile} user={user} setUser={setUser} />
             </Row>
           </Container>
         </div>

@@ -2,7 +2,7 @@
 $mobile-max-width: 768px;
 
 .sidebar {
-    position: absolute;
+    position: fixed;
     width: 288px;
     height: calc(100vh - 80px);
     left: 0px;
@@ -33,7 +33,10 @@ $mobile-max-width: 768px;
 }
 
 .sidebar .item.selected {
-    border-top: 4px solid #3843D0;
+
+    @media screen and (max-width: $mobile-max-width) {
+        border-top: 4px solid #3843D0;
+    }
 }
 
 .sidebar .item.selected .content {
@@ -56,7 +59,7 @@ $mobile-max-width: 768px;
 }
 
 .logo {
-    position: absolute;
+    position: fixed;
     width: 288px;
     height: 80px;
     left: 0px;
